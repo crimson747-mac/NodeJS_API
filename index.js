@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 
 // Import Routes
 const authRoute = require("./Routes/auth");
+const postRoute = require("./Routes/posts");
 
 dotenv.config();
 
@@ -20,5 +21,6 @@ mongoose.connect(
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/api/user", authRoute);
+app.use("/api/posts", postRoute);
 
 app.listen(3000, () => console.log("http://localhost:3000"));
